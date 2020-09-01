@@ -19,6 +19,6 @@ class StateFormatter:
         return connectingStatesString
 
     @staticmethod
-    def format(stateNode):
+    def formatText(stateNode):
         connectedStatesString = StateFormatter.__getConnectingStatesString(stateNode)
         return stateNode.nodeDescriptionText + "\n" + connectedStatesString
