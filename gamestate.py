@@ -5,7 +5,6 @@ from prettyprinter import PrettyPrinter
 class GameState:
     def __init__(self, startNode):
         self.__currentNode = startNode
-        self.__textPrintSpeed = .05
 
     @property
     def currentNode(self):
@@ -17,7 +16,10 @@ class GameState:
         self.__currentNode = connections[actionNumber]
 
     def printCurrentNode(self):
-        PrettyPrinter.printPrettyText(StateFormatter.formatText(self.currentNode), 100, self.__textPrintSpeed)
+        textPrintSpeed = 0.05
+        imagePrintSpeed = 0.1
+        PrettyPrinter.printPrettyAsciiImage(self.currentNode.nodeImage, imagePrintSpeed)
+        PrettyPrinter.printPrettyText(StateFormatter.formatText(self.currentNode), 100, textPrintSpeed)
 
     def isOver(self):
         return self.currentNode.hasNoConnectingStates()

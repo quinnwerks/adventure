@@ -26,16 +26,15 @@ def getActionNumber(stateNode):
 
 
 def main():
-    a = StateNode("You did nothing!", [], [])
-    b = StateNode("You did poopie!", [], [])
-    c = StateNode("blah", [a, b], ["do nothing", "poopself"])
+    a = StateNode("You did action A!", [], [], AsciiImages.heart())
+    b = StateNode("You did action B!", [], [], "")
+    c = StateNode("blah", [a, b], ["do a", "do b"], "")
     game = GameState(c)
     while(not game.isOver()):
         game.printCurrentNode()
         actionNumber = getActionNumber(game.currentNode)
         game.changeStateDueToAction(actionNumber)
     game.printCurrentNode()
-    PrettyPrinter.printPrettyAsciiImage(AsciiImages.heart(), 0.25)
 
 if __name__ == '__main__':
     main()
