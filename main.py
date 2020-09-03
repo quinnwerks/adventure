@@ -2,9 +2,6 @@ from statenode import StateNode
 from gamestate import GameState
 from asciiimages import AsciiImages
 
-
-
-
 def main():
     a = StateNode("You did action A!", [], [], AsciiImages.heart())
     b = StateNode("You did action B!", [], [], "")
