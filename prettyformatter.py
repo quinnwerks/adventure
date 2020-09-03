@@ -1,6 +1,6 @@
 from statenode import StateNode
 
-class StateFormatter:
+class PrettyFormatter:
 
     @staticmethod
     def __getConnectingStatesString(stateNode):   
@@ -20,5 +20,5 @@ class StateFormatter:
 
     @staticmethod
     def formatText(stateNode):
-        connectedStatesString = StateFormatter.__getConnectingStatesString(stateNode)
+        connectedStatesString = PrettyFormatter.__getConnectingStatesString(stateNode)
         return stateNode.nodeDescriptionText + "\n" + connectedStatesString
