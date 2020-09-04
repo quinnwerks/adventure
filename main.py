@@ -3,7 +3,7 @@ from gamestate import GameState
 from asciiimages import AsciiImages
 
 def main():
-    a = StateNode("You did action A!", [], [], AsciiImages.heart())
+    a = StateNode("You did action A!", [], [], AsciiImages.gameover())
     b = StateNode("You did action B!", [], [], "")
     c = StateNode("blah", [a, b], ["do a", "do b"], "")
 

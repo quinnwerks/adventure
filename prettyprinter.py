@@ -18,7 +18,7 @@ class PrettyPrinter:
     @staticmethod
     def printPrettyAsciiImage(asciiImage, printSpeed):
         for char in asciiImage:
-            if char is "\n":
+            if char == "\n":
                 time.sleep(printSpeed)
             print(char, end='')
             sys.stdout.flush()
