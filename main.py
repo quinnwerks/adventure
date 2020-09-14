@@ -3,9 +3,10 @@ from gamestate import GameState
 from asciiimages import AsciiImages
 
 def main():
-    a = StateNode("You did action A!", [], [], AsciiImages.gameover())
-    b = StateNode("You did action B!", [], [], "")
-    c = StateNode("blah", [a, b], ["do a", "do b"], "")
+    a = StateNode("You did action A!", AsciiImages.gameover())
+    b = StateNode("You did action B!","")
+    c = StateNode("blah", "")
+    c.setConnectingStatesAndTheirActions([a,b], ["do a", "do b"])
 
     textPrintSpeed = 0.05
     imagePrintSpeed = 0.1

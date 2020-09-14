@@ -26,10 +26,13 @@ class GameState:
         self.__currentNode = connections[actionNumber]
 
     def printCurrentNode(self):
-        textPrintSpeed = 0.05
-        imagePrintSpeed = 0.1
-        PrettyPrinter.printPrettyAsciiImage(self.currentNode.nodeImage, self.imagePrintSpeed)
-        PrettyPrinter.printPrettyText(PrettyFormatter.formatText(self.currentNode), 100, self.textPrintSpeed)
+        print("\n---------------------------------------------------------")
+        PrettyPrinter.printLineByLine(self.currentNode.nodeImage, self.imagePrintSpeed)
+        if(self.currentNode.nodeImage != ""):
+            print("\n---------------------------------------------------------")
+        PrettyPrinter.printCharacterByCharacter(self.currentNode.nodeDescriptionText, 100, self.textPrintSpeed)
+        print("\n---------------------------------------------------------")
+        PrettyPrinter.printLineByLine(PrettyFormatter.getConnectingStatesString(self.currentNode), self.imagePrintSpeed)
 
     def isOver(self):
         return self.currentNode.hasNoConnectingStates()
@@ -41,7 +44,11 @@ class GameState:
         actionNumber = -1
         inputIsValid = False
         while not inputIsValid:
-            PrettyPrinter.printPrettyText("\nPlease enter an integer from %d to %d: " % \
+            if (highestValidActionNumber == lowestValidActionNumber):
+                PrettyPrinter.printCharacterByCharacter("Please press \"0\" then \"return\": ", \
+                    100, self.textPrintSpeed)
+            else:
+                PrettyPrinter.printCharacterByCharacter("\nPlease enter an integer from %d to %d and then press \"return\": " % \
                     (lowestValidActionNumber, highestValidActionNumber), 100, self.textPrintSpeed)
             inputString = input("")
             try:

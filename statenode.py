@@ -1,10 +1,9 @@
-class StateNode:
-    def __init__(self, nodeDescriptionText, connectingStates, connectingStatesActions, nodeImage):
-        assert(len(connectingStates) == len(connectingStatesActions))
+class StateNode:  
+    def __init__(self, nodeDescriptionText, nodeImage):
         self.__nodeDescriptionText = nodeDescriptionText
-        self.__connectingStates = connectingStates
-        self.__connectingStatesActions = connectingStatesActions
         self.__nodeImage = nodeImage
+        self.__connectingStates = []
+        self.__connectingStatesActions = []
 
     @property
     def nodeDescriptionText(self):
@@ -21,6 +20,11 @@ class StateNode:
     @property
     def nodeImage(self):
         return self.__nodeImage
+
+    def setConnectingStatesAndTheirActions(self, connectingStates, connectingStatesActions):
+        assert(len(connectingStates) == len(connectingStatesActions))
+        self.__connectingStates = connectingStates
+        self.__connectingStatesActions = connectingStatesActions
 
     def hasNoConnectingStates(self):
         return not self.connectingStates

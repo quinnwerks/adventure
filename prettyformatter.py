@@ -3,7 +3,7 @@ from statenode import StateNode
 class PrettyFormatter:
 
     @staticmethod
-    def __getConnectingStatesString(stateNode):   
+    def getConnectingStatesString(stateNode):   
         connectingStatesString = ""     
         if stateNode.hasNoConnectingStates():
             connectingStatesString = ""
@@ -17,8 +17,3 @@ class PrettyFormatter:
             i = i + 1
 
         return connectingStatesString
-
-    @staticmethod
-    def formatText(stateNode):
-        connectedStatesString = PrettyFormatter.__getConnectingStatesString(stateNode)
-        return stateNode.nodeDescriptionText + "\n" + connectedStatesString
